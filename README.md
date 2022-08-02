@@ -32,3 +32,5 @@ Dependencies:
 </ol>
 
 NOTE: The version in this project for both dependencies (Microsoft.Azure.WebJobs/Microsoft.Azure.WebJobs.Logging.ApplicationInsights) is 3.0.33 but the version for 'Microsoft.Azure.WebJobs.Logging.ApplicationInsights' should match the version of the 'Microsoft.Azure.WebJobs' package in a new solution.
+
+Also, this project can be run locally and successfully demonstrate data ingestion into Application Insights by adding the app setting 'APPINSIGHTS_INSTRUMENTATIONKEY' with a valid instrumentation key value into the project local.settings.json file.
