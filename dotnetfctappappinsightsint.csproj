@@ -4,6 +4,14 @@
     <AzureFunctionsVersion>v4</AzureFunctionsVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Properties\PublishProfiles\**" />
+    <Compile Remove="Properties\ServiceDependencies\**" />
+    <EmbeddedResource Remove="Properties\PublishProfiles\**" />
+    <EmbeddedResource Remove="Properties\ServiceDependencies\**" />
+    <None Remove="Properties\PublishProfiles\**" />
+    <None Remove="Properties\ServiceDependencies\**" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights" Version="2.21.0" />
     <PackageReference Include="Microsoft.Azure.WebJobs" Version="3.0.33" />
     <PackageReference Include="Microsoft.Azure.WebJobs.Logging.ApplicationInsights" Version="3.0.33" />

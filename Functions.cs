@@ -85,7 +85,7 @@ namespace dotnetfctappappinsightsint
                 dependency.Context.User.Id = name;
                 this.telemetryClient.TrackDependency(dependency);
 
-                return (ActionResult)new OkObjectResult($"Function was called by {reqName}");
+                return (ActionResult)new OkObjectResult(eventTelementryMsg);
             }
             catch (Exception ex)
             {
