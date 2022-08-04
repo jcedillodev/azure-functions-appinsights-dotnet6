@@ -15,12 +15,12 @@ using Newtonsoft.Json;
 
 namespace dotnetfctappappinsightsint
 {
-    public class Functions
+    public class HttpTrigger1
     {
         private readonly TelemetryClient telemetryClient;
 
         // Using dependency injection will guarantee that you use the same configuration for telemetry collected automatically and manually.
-        public Functions(TelemetryConfiguration telemetryConfiguration)
+        public HttpTrigger1(TelemetryConfiguration telemetryConfiguration)
         {
             this.telemetryClient = new TelemetryClient(telemetryConfiguration);
         }
@@ -28,13 +28,14 @@ namespace dotnetfctappappinsightsint
         // New Function codebase - reference documentation:
         // https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library?tabs=v2%2Ccmd#log-custom-telemetry-in-c-functions
         // https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=in-process%2Cfunctionsv2&pivots=programming-language-csharp
-        
+
+        // Http Trigger Example
         [FunctionName("HttpTrigger1")]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]
             HttpRequest req, ExecutionContext context, ILogger log)
         {
-            string fctName = "HttpTrigger1";
+            string httpFctName = "HttpTrigger1";
             log.LogInformation("C# HTTP trigger function processed a request.");
             DateTime start = DateTime.UtcNow;
 
@@ -60,8 +61,8 @@ namespace dotnetfctappappinsightsint
                 // Set message passed when registering custom app insights telemetry event if name is defined in POST call with a JSON request body
                 // If not, set default message
                 string eventTelementryMsg = string.IsNullOrEmpty(reqName)
-                    ? $"Function {fctName} was called."
-                    : $"Function {fctName} called by {reqName}.";
+                    ? $"Function {httpFctName} was called."
+                    : $"Function {httpFctName} called by {reqName}.";
 
                 // Write an event to the customEvents table.
                 var evt = new EventTelemetry(eventTelementryMsg);
