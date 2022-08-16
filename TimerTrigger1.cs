@@ -41,9 +41,9 @@ namespace dotnetfctappappinsightsint
                 // Log a custom dependency in the dependencies table using site (johncedillo.com) health check endpoint
                 var dependency = new DependencyTelemetry
                 {
-                    Name = "GET health/live",
-                    Target = "johncedillo.com",
-                    Data = "johncedillo.com/health/live",
+                    Name = "GET api/ping",
+                    Target = "jcrgutildotnetfctapp.azurewebsites.net",
+                    Data = "jcrgutildotnetfctapp.azurewebsites.net/api/ping",
                     Timestamp = start,
                     Duration = DateTime.UtcNow - start,
                     Success = true
