@@ -20,7 +20,7 @@ namespace dotnetfctappappinsightsint
 
         // Timer Trigger Example
         [FunctionName("TimerTrigger1")]
-        public void Run([TimerTrigger("0 0 * * * *")] TimerInfo myTimer, ILogger log)
+        public void Run([TimerTrigger("0 0 * * * *", RunOnStartup = true)] TimerInfo myTimer, ILogger log)
         {// Function will fire at the top of every hour daily - for more info, review NCRONTAB expressions: https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-timer?tabs=in-process&pivots=programming-language-csharp#ncrontab-expressions
 
             string timerFctName = "TimerTrigger1";
