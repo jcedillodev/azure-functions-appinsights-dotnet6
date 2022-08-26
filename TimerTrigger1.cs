@@ -38,7 +38,7 @@ namespace dotnetfctappappinsightsint
                 // Track EventTelemetry object
                 this.telemetryClient.TrackEvent(evt);
 
-                // Log a custom dependency in the dependencies table using site (johncedillo.com) health check endpoint
+                // Log a custom dependency in the dependencies table using an http trigger function for a function app
                 var dependency = new DependencyTelemetry
                 {
                     Name = "GET api/ping",
