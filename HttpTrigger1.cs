@@ -68,6 +68,8 @@ namespace dotnetfctappappinsightsint
                 var evt = new EventTelemetry(eventTelementryMsg);
 
                 evt.Context.User.Id = name;
+
+                // Track EventTelemetry object within App Insights
                 this.telemetryClient.TrackEvent(evt);
 
                 // Generate a custom metric, in this case let's use ContentLength.
